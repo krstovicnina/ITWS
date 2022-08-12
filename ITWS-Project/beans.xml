@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="store" class="rs.ac.singidunum.spring.RecordStore">
+		<constructor-arg name="store_name" type="String" value="Vinyland"></constructor-arg>
+		<property name="album" ref="album"></property>
+		<property name="employee" ref="employee"></property>
+
+
+		<property name="partners" ref="partners"></property>
+		
+		<property name="owner" ref="owner"></property>
+	</bean>
+
+	<bean id="album" class="rs.ac.singidunum.spring.Album">
+		<constructor-arg name="name">
+			<set>
+				<value> Pink Floyd - Dark Side Of The Moon </value>
+				<value> Father John Misty - I Love You Honeybear </value>
+				<value> Alt-J - This is All Yours </value>
+				<value> J Dilla - Donuts </value>
+				<value> Michael Jackson - Thriller </value>
+				<value> Odesza - In Return </value>
+				<value> The Postal Service - Give Up </value>
+				<value> The Beatles - Revolver </value>
+				<value> Sturgill Simpson - Metamodern Sounds in Country Music </value>
+				<value> Radiohead - Kid A </value>
+				<value> Daft Punk - Discovery </value>
+				<value> David Bowie - The Rise and Fall of Ziggy Stardust and the Spiders from Mars </value>
+				<value> Miles Davis - Kind of Blue </value>
+				<value> Lana Del Rey - Ultraviolence </value>
+			</set>
+		</constructor-arg>
+
+		<property name="best_seller" ref="best_seller"></property>
+	</bean>
+	<bean id="best_seller" class="rs.ac.singidunum.spring.BestSeller">
+		<constructor-arg name="best_seller" type="String" value="Michael Jackson - Thriller">
+		</constructor-arg>
+		<property name="songs" ref="songs"></property>
+		<property name="record_company" ref="record_company"></property>
+		<property name="mpsong" ref="mpsong"></property>
+	</bean>
+	<bean id="record_company"
+		class="rs.ac.singidunum.spring.RecordCompany">
+	<constructor-arg name="label_name" type="String"
+		value="Epic Records">
+	</constructor-arg>
+	<property name="address" ref="address"></property>
+	</bean>
+	<bean id="songs" class="rs.ac.singidunum.spring.Song">
+		<constructor-arg name="title">
+			<list>
+				<value> Wanna Be Startin' Somethin' </value>
+				<value> Baby Be Mine  </value>
+				<value> The Girl Is Mine  </value>
+				<value> Thriller </value>
+				<value> Beat It </value>
+				<value> Billie Jean </value>
+				<value> Human Nature </value>
+				<value> P.Y.T (Pretty Young Thing) </value>
+				<value> The Lady In My Life </value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="address" class="rs.ac.singidunum.spring.Address">
+		<constructor-arg name="street" type="String"
+			value="9830 Wilshire Blvd.">
+		</constructor-arg>
+		<constructor-arg value="90212" name="postalCode"
+			type="String">
+		</constructor-arg>
+	</bean>
+	<bean id="mpsong" class="rs.ac.singidunum.spring.MPSong">
+		<constructor-arg name="mpsong_title" type="String"
+			value="Billie Jean">
+		</constructor-arg>
+		<property name="author" ref="author"></property>
+	</bean>
+	<bean id="author" class="rs.ac.singidunum.spring.Author">
+		<constructor-arg name="author_name" type="String"
+			value="Michael Joseph Jackson">
+		</constructor-arg>
+	</bean>
+	<bean id="employee" class="rs.ac.singidunum.spring.Employee">
+		<constructor-arg name="employee">
+			<list>
+				<value> Mark Jacobson [sales] </value>
+				<value> Spenser Hawks [management] </value>
+				<value> Laura Warner [logistics] </value>
+				
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="partners" class="rs.ac.singidunum.spring.Partner">
+		<constructor-arg name="partners">
+			<list>
+				<value> Alliance Entertainment</value>
+				<value> Face Records </value>
+				<value> Monostereo </value>
+				<value> Jungle Records</value>
+				<value> Needles and Grooves</value>
+				
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="owner" class="rs.ac.singidunum.spring.Owner">
+		<constructor-arg name="owner" type="String"
+			value="Jack and Lilly Ruthward">
+		</constructor-arg>
+	</bean>
+</beans>
+
